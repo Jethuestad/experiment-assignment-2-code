@@ -8,18 +8,18 @@ import java.util.List;
 public class Bank {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
-    private int id;
+    private Long id;
     private String name;
 
     @OneToMany(mappedBy = "bank")
     private List<CreditCard> creditCardList = new ArrayList<CreditCard>();
 
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -31,7 +31,7 @@ public class Bank {
         this.name = name;
     }
 
-    public void setCreditCardList(List<CreditCard> creditCards) {
-        this.creditCardList = creditCards;
+    public List<CreditCard> getCreditCardList() {
+        return this.creditCardList;
     }
 }

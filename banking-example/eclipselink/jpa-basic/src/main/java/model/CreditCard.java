@@ -8,7 +8,7 @@ import java.util.List;
 public class CreditCard {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
-    private int id;
+    private Long id;
     private int number;
     private int Balance;
     private int Limit;
@@ -17,11 +17,11 @@ public class CreditCard {
 
     private Bank bank;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -56,5 +56,14 @@ public class CreditCard {
 
     public void setPincode(Pincode pincode) {
         this.pincode = pincode;
+    }
+
+    @ManyToOne
+    public Bank getBank() {
+        return bank;
+    }
+
+    public void setBank(Bank bank) {
+        this.bank = bank;
     }
 }

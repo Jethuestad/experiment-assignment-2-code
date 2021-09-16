@@ -8,10 +8,11 @@
             <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver"/>
                       <!-- TODO Change the path in the value here! -->
             <property name="javax.persistence.jdbc.url"
-                      value="jdbc:derby:C:\Users\jensa\Documents\H21\dat250\databases\testdb;create=true"/>
+                      value="jdbc:derby:C:\Users\Jens\Documents\DAT250\databases\testdb;create=true"/>
             <property name="javax.persistence.jdbc.user" value="test"/>
             <property name="javax.persistence.jdbc.password" value="test"/>
 
+            <property name="eclipselink.ddl-generation" value="create-tables"/>
             <property name="eclipselink.ddl-generation.output-mode" value="database"/>
         </properties>
 

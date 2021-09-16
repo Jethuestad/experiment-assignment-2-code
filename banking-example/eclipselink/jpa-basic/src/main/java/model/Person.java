@@ -8,19 +8,20 @@ import java.util.List;
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
-    private int id;
+    private Long id;
     private String name;
 
-    private Address address;
+    @ManyToMany(mappedBy = "personList")
+    private List<Address> addressList = new ArrayList<>();
 
     private List<CreditCard> creditCardList = new ArrayList<CreditCard>();
 
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -32,13 +33,9 @@ public class Person {
         this.name = name;
     }
 
-    @OneToOne
-    public Address getAddress() {
-        return address;
-    }
 
-    public void setAddress(Address address) {
-        this.address = address;
+    public List<Address> getAddressList() {
+        return this.addressList;
     }
 
     @OneToMany

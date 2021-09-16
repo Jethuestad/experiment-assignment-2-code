@@ -1,23 +1,25 @@
 package model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
-    private int id;
+    private Long id;
     private String street;
     private int number;
 
-    private Person person;
+    private List<Person> personList = new ArrayList<>();
 
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -37,12 +39,12 @@ public class Address {
         this.number = number;
     }
 
-    @OneToOne
-    public Person getPerson() {
-        return person;
+    @ManyToMany
+    public List<Person> getPersonList() {
+        return this.personList;
     }
 
-    public void setPerson(Person person) {
-        this.person = person;
+    public void setPersonList(List<Person> personList) {
+        this.personList = personList;
     }
 }
